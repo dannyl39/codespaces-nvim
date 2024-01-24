@@ -190,11 +190,10 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    "catppuccin/nvim",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'catppuccin'
     end,
   },
 
@@ -205,7 +204,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
       },
@@ -267,6 +266,10 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
+  {
+    "m4xshen/autoclose.nvim",
+  },
+
 }, {})
 
 -- [[ Setting options ]]
@@ -661,6 +664,16 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+require("autoclose").setup({
+  keys = {
+    -- Don't deal with this for now
+    -- [">"] = { escape = true, close = true, pair = "<>", disabled_filetypes = {} },
+  },
+  options = {
+    disable_when_touch = true,
+  }
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
